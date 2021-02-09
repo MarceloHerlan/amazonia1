@@ -1,8 +1,21 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import {applyMiddleware, combineReducers, createStore} from 'redux'
+import thunk from 'redux-thunk'
+import basketReducer from '../reducers/basketReducer'
+import userReducer from '../reducers/userReducer'
 
-export default configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
-});
+
+const initialState={}
+const reducer=combineReducers({
+ basket:basketReducer,
+ user:userReducer,
+})
+
+const composeEnhancer=window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+
+const store=createStore (
+  reducer,
+  initialState,
+  //composeEnhancer(applyMiddleware(thunk))
+  )
+
+export default store;

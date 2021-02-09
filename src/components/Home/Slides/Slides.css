@@ -1,0 +1,13 @@
+.Slides {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  .bg {
+    position: absolute;  
+   height: 50%;  
+  width:100%;  
+  background-position: center;
+  will-change: opacity;
+}
+    
